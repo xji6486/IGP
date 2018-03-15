@@ -1,9 +1,10 @@
-This codes are from the following places.
+These codes are from the following conference.
+It talks about the machine larning. And this technology may be applied to de novo assembling of DNA sequences in the near future.
 
-###--------------------------------------
-### DSTEP講習会のハンズオン資料です。
-### 2018年1月26日開催　神沼 英里
-###------------------------------------
+###------------------------------------#
+### DSTEP講習会のハンズオン資料です。    # 
+### 2018年1月26日開催　神沼 英里        #
+###------------------------------------#
 ```
 2018年1月26日開催の「第1回 D-STEP 講習会」(第36回 DDBJing講習会）の
 講習、「ディープラーニングによる出芽酵母蛍光画像の細胞内タンパク質局在の分類」
@@ -11,7 +12,6 @@ This codes are from the following places.
 ```
 - [DSTEP180126_DY3CL.ipynb](DSTEP180126_DY3CL.ipynb)　：　JupyterNotebook形式のpythonプログラム
 - eA10_3CL.mat : DeepYeast(下参照LINK)データから3CLASSESのみ220画像を抽出したデータセット
-
 ```
 オリジナルのDeepYeastデータセットは下記参照。
 ```
