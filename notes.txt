@@ -1,0 +1,13 @@
+##https://github.com/schatzlab/genomescope                            #Fast genome analysis from unassembled short reads
+ https://academic.oup.com/bioinformatics/article/33/14/2202/3089939   #GenomeScope: fast reference-free genome profiling from short reads
+ http://qb.cshl.edu/genomescope/                                      #GenomeScope
+ https://www.ebi.ac.uk/ena/data/view/SRX1865253                       #European Nucleotide Archive for SRX1865253
+In put:
+ $ /home/yanakamu/DATA_Citrus/Unshu_Assembly/kmer_analysis/jellyfish count -C -m 21 -s 100000000 -t 10 SRX1865253.fastq -o SRX1865253.read.jf
+ $ /home/yanakamu/DATA_Citrus/Unshu_Assembly/kmer_analysis/jellyfish histo -t 10 SRX1865253.read.jf > reads.histo
+Out put results of genomescope:
+ http://genomescope.org/analysis.php?code=h2N8KCcrsPW5zbAJmlp3
+
+
+ https://bioinformatics.uconn.edu/genome-size-estimation-tutorial/    #Genome size estimation version1
+ http://koke.asrc.kanazawa-u.ac.jp/HOWTO/kmer-genomesize.html         #Genome size estimation version2

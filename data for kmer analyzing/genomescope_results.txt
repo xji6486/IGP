@@ -1,0 +1,20 @@
+DRR000183 (Bacillus anthracis,      ¬´¯j±ìµß) length (Mb): 5.44837 http://qb.cshl.edu/genomescope/analysis.php?code=9vkIdb6OghWlWRipV8ah  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=DRX000091
+DRR000718 (Jatropha curcas,         ®äªo¾ð)   length (Mb): 308.094 http://qb.cshl.edu/genomescope/analysis.php?code=4RLvyQbpvZaZjdY1S8E1  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=DRX000449
+DRR001444 (Drosophila melanogaster, ¶Â¸¡ªGÃÇ) length (Mb): 143.925 http://qb.cshl.edu/genomescope/analysis.php?code=gbpWCJs2eZ80ZgoSSTrk  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=DRX000998
+DRR002191 (Homo sapiens,            ´¼¼z¤H)   length (Mb): 2996.42 http://qb.cshl.edu/genomescope/analysis.php?code=jtW5fx9zsNXjtaHUO82m  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=DRX001619 
+DRR015806 (Escherichia coli,        ¤j¸z±ìµß) length (Mb): 5.14772 http://qb.cshl.edu/genomescope/analysis.php?code=GsFZOd7RnbDbc6hTFMcw  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=DRX014178 
+DRR021838 (Pseudomonas aeruginosa,  ºñÁw±ìµß) length (Mb): 6.60141 http://qb.cshl.edu/genomescope/analysis.php?code=j7D55fEn0bP08jBrkoEp  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=DRX019977 
+ERR038858 (Saccharomyces cerevisiae,ÆC°s»Ã¥À) length (Mb): 12.123  http://qb.cshl.edu/genomescope/analysis.php?code=jrWAV3sTnhDmKND35eAr  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=ERX016054 
+ERR070478 (Salmo salar,             ¤j¦è¬vÂD) length (Mb): 2966.89 http://qb.cshl.edu/genomescope/analysis.php?code=uoDSqN7ETh7FiJb5CWRg  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=ERX048246
+SRR609905 (Pyrus,bretschneideri,    Àn±ù)     length (Mb): 508.551 http://qb.cshl.edu/genomescope/analysis.php?code=RPQnFFMu5XgpE1IJlJcN  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=SRX202034
+SRR609942 (Pyrus,bretschneideri,    Àn±ù)     length (Mb): 508.551 http://qb.cshl.edu/genomescope/analysis.php?code=T9idfrRdlcH0zKmwfhSN  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=SRX202071
+SRR770230 (Flammulina velutipes,    ª÷°wÛ£)   length (Mb): 35.2177 http://qb.cshl.edu/genomescope/analysis.php?code=nszLlB1gDewephWYsSgR  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=SRX247925
+SRR2000035(Arabidopsis thaliana,    ªü©Ô§Bªã) length (Mb): 119.148 http://qb.cshl.edu/genomescope/analysis.php?code=VvAhEGLAyPvdyExE7POP  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=SRX1012031
+SRX1865253(Arabidopsis thaliana,    ªü©Ô§Bªã) length (Mb): 119.148 http://qb.cshl.edu/genomescope/analysis.php?code=a1rNsp2FDzpWfxeEaLY2  @http://ddbj.nig.ac.jp/DRASearch/experiment?acc=SRX1865253
+
+Reference:
+http://ddbj.nig.ac.jp/DRASearch/
+https://www.ncbi.nlm.nih.gov/genome
+http://qb.cshl.edu/genomescope/
+
+
