@@ -1,0 +1,251 @@
+%Installing Environment
+https://docs.anaconda.com/
+https://conda.io/docs/index.html
+https://www.tensorflow.org/
+https://keras.io/#guiding-principles
+
+%Deep learning
+http://speech.ee.ntu.edu.tw/~tlkagk/courses.html
+http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17_2.html
+
+%installing Anaconda and Keras
+http://oblivious9.pixnet.net/blog/post/218123469-windows-%E5%AE%89%E8%A3%9D-keras-%2B-theano-%2B-tensorflow-%E4%B8%A6%E5%88%87%E6%8F%9B%E5%BE%8C%E7%AB%AF
+http://darren1231.pixnet.net/blog/post/328443678-python-%E6%96%B0%E6%89%8B%E7%9A%84%E6%95%91%E6%98%9F--anaconda%E4%BB%8B%E7%B4%B9%E8%88%87%E5%AE%89%E8%A3%9D
+
+%show directory
+  >>dir
+%open anaconda prompt to start
+  >> spyder   (launch "spyder" complier for python)
+  >> jupyter notebook  (launch "jupyter notebook" for python)
+%install package
+  >> conda install "name_of_package"
+%remember to install "scipy"
+  >> conda install scipy
+%建立環境
+  >> conda create --name tensorflow python=2.7
+%使用環境
+  >> source activate tensorflow
+%安裝
+  >> conda install "name_of_package" (Or >> pip install jupyter)
+  >> conda update "name_of_package"
+%Packages for python already in Anaconda
+https://medium.com/@yehjames/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E7%AC%AC%E4%B8%80%E8%AC%9B-python%E6%87%B6%E4%BA%BA%E5%8C%85-anaconda-%E4%BB%8B%E7%B4%B9-%E5%AE%89%E8%A3%9D-f8199fd4be8c
+
+%keras後端:
+Theano的英文一個開源的符號主義張量操作框架，由蒙特利爾大學LISA / MILA實驗室開發。
+TensorFlow的英文一個符號主義的張量操作框架，由谷歌開發。
+CNTK的英文一個由微軟開發的商業級工具包。 
+https://keras-cn.readthedocs.io/en/latest/backend/
+
+%python learning
+https://www.tutorialspoint.com/python/index.htm
+http://www.codedata.com.tw/python/python-tutorial-the-1st-class-1-preface/
+https://www.codecademy.com/en/tracks/python
+%http://tech-marsw.logdown.com/blog/2014/09/03/getting-started-with-python-in-ten-minute
+
+%example for implement of deep learning by Keras:
+https://fgc.stpi.narl.org.tw/activity/videoDetail/4b1141305d9cd231015d9d03cfd10027
+/////////////////////////////////////////////////
+from keras.datasets import mnist
+from keras.utils import np_utils
+
+def load_data():
+    # 載入minst的資料
+    (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    # 將圖片轉換為一個60000*784的向量，並且標準化
+    x_train = x_train.reshape(x_train.shape[0], 28*28)
+    x_test = x_test.reshape(x_test.shape[0], 28*28)
+    x_train = x_train.astype('float32')
+    x_test = x_test.astype('float32')
+    x_train = x_train/255
+    x_test = x_test/255
+    # 將y轉換成one-hot encoding 
+    y_train = np_utils.to_categorical(y_train, 10)
+    y_test = np_utils.to_categorical(y_test, 10)
+    # 回傳處理完的資料
+    return (x_train, y_train), (x_test, y_test)
+
+import numpy as np
+from keras.models import Sequential
+from keras.layers.core import Dense,Activation
+from keras.optimizers import  Adam
+
+def build_model():
+        #建立模型
+        model = Sequential()
+        #將模型疊起
+        model.add(Dense(input_dim=28*28,units=500,activation='relu'))
+        model.add(Dense(units=500,activation='relu'))
+        model.add(Dense(units=500,activation='relu'))
+        model.add(Dense(units=10,activation='softmax'))
+        model.summary()
+        return model
+    
+(x_train,y_train),(x_test,y_test)=load_data()
+model = build_model()
+#開始訓練模型
+model.compile(loss='categorical_crossentropy',optimizer="adam",metrics=['accuracy'])
+model.fit(x_train,y_train,batch_size=100,epochs=20)
+#顯示訓練結果
+score = model.evaluate(x_train,y_train)
+print ('\nTrain Acc:', score[1])
+score = model.evaluate(x_test,y_test)
+print ('\nTest Acc:', score[1])
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar  5 16:36:06 2018
+
+@author: ASUS
+"""
+import scipy.io
+#-------?像???????-----------------------
+mat = scipy.io.loadmat('eA10_3CL.mat');
+
+#--?????????明---------------------------
+#
+#+++++++[1]???形式++++++++++++++++++++++++++++
+#  ????matlab?(.mat)形式?、構造体(????名?tmp???)
+#  ???下記?4???格納??????。
+#  (1)tmp.x1 = train?像群(600, 64, 64, 3)　
+#  (2)tmp.x2 = test?像群(60, 64, 64, 3)
+#  (3)tmp.y1 = train注?：分類???(600,1) 
+#  (4)tmp.y2 = test注?:分類???(60,1)
+#
+#++++++[2]?像???(x1,x2)+++++++++++++++++++++++
+#  1???像????64,64?、RGB?3??????。各?像
+#  ????(64,64,3)?????。train?像群?場合?
+#  600枚?一????x1?入????、???????
+# (600,64,64,3)?????。
+#
+#+++++[3]分類??????(y1,y2)+++++++++++++++++++++++  
+#  ?像注??分類?????、???番?（0,1,2）?格納??????。
+#
+#+++++[4]訓練??????作成+++++++++++++++++++++++++
+#  訓練???????作成（tmp.x1??x_train???換名?更）?、
+#  後????「?像???(X)?注?(Y)準備」??照??????
+#
+import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten, Activation
+from keras.layers import Conv2D, MaxPooling2D
+from keras import backend as K
+
+#-----?習用?????-------------------
+batch_size = 256 #128
+num_classes = 3
+epochs = 6 #12
+
+#----?像???設定------------------- 
+img_rows, img_cols = 64, 64
+input_shape = (img_rows, img_cols, 3)
+
+#----?像???(X)?注?(Y)準備------------ 
+x_train = mat['x1']
+x_test = mat['x2']
+y_train = mat['y1']
+y_test = mat['y2']
+
+#-----?像????RGB??[0-1]??換----------------------
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
+print('x_train shape:', x_train.shape)
+print(x_train.shape[0], 'train samples')
+print(x_test.shape[0], 'test samples')
+
+#----???番?0,1,2?????[1,0,0][0,1,0][0,0,1]??換-------
+y_test_org = y_test
+y_train = keras.utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.to_categorical(y_test, num_classes)
+
+
+#--------model?定義------------------------------------- 
+model = Sequential()
+model.add(Conv2D(32, kernel_size=(3, 3), 
+                 input_shape=input_shape))
+model.add(Conv2D(32, (3, 3), activation='relu'))
+model.add(Conv2D(32, (3, 3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(32, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(3, activation='softmax'))
+
+model.compile(loss='categorical_crossentropy',#損失??
+              optimizer='adam', #最適化手法
+              metrics=['accuracy']) #評???
+
+#--------model??習----------------------------------
+history=model.fit(x_train, y_train,
+          batch_size=batch_size,
+          epochs=epochs,
+          verbose=1,
+          validation_data=(x_test, y_test))
+
+#--------model?評?---------------------------------
+score = model.evaluate(x_test, y_test, verbose=0)
+print('Test loss: %0.03f' % score[0])
+print('Test accuracy: %0.03f' % score[1])
+y_pred = model.predict_classes(x_test) #予測?y_pred?計算
+#--混同行列?計算 ----------------------
+from sklearn.metrics import confusion_matrix
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+print(y_pred.shape)
+print(y_test_org.shape)
+pd.crosstab(y_test_org.flatten(),y_pred,rownames=['True'],colnames=['Pred'],margins=True) #混同行列
+#---不正解?????像?視?化-------------------------
+import matplotlib.pyplot as plt
+#%matplotlib inline 
+
+test_wrong = [im for im in zip(x_test,y_pred,y_test_org) if im[1] != im[2]]
+
+plt.figure(figsize=(10, 10))
+for ind, val in enumerate(test_wrong[:20]):
+    plt.subplots_adjust(left=0, right=1, bottom=0, top=1)
+    plt.subplot(10, 10, ind + 1)
+    im = 1 - val[0].reshape((64,64,3))
+    plt.axis("off")
+    plt.text(0, 0, val[2], fontsize=14, color='blue')#正解???
+    plt.text(28, 0, val[1], fontsize=14, color='red')#予測???
+    plt.imshow(im, cmap='gray')
+    #---評???(Accuracy)??化?視?化----------------------
+plt.plot(history.history['acc'],"o-",label="train_accuracy")
+plt.plot(history.history['val_acc'],"o-",label="test_accuarcy")
+plt.title('model accuracy')
+plt.xlabel('epoch')
+plt.ylabel('accuracy')
+plt.ylim(0, 1)
+plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+plt.show()
+#---損失????化?視?化----------------------
+plt.plot(history.history['loss'],"o-",label="train_loss",)
+plt.plot(history.history['val_loss'],"o-",label="test_loss")
+plt.title('model loss')
+plt.xlabel('epoch')
+plt.ylabel('loss')
+plt.ylim(ymin=0)
+plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+plt.show()
+#----model architecture?確認---------------------
+model.summary()
+/////////////////////////////////////////////////
+
+%建立密鑰與公鑰以登入DDBJ super computer
+https://sc2.ddbj.nig.ac.jp/index.php/en/en-sshkey-registration (Windows by putty)
+(Using PuTTYgen to generate keys -> keep the files of public key and private key -> upload the public key)
+
+%建立FTP連線以登入DDBJ super computer
+開啟FileZilla Client -> protocol choose SFTP -SSH File Transfer Protocol -> Host:gw2.ddbj.nig.ac.jp;Port:22 -> upload the same public key as terminal -> UserID and Password are both the same as DDBJ super computer's account
+https://www.evernote.com/shard/s205/sh/52fd14ba-7de1-423b-80f6-492781a80449/a7fb88d2a2c5f5ca (mac by Teraterm)
+
+%Introduction to DDBJ super computer
+https://sc2.ddbj.nig.ac.jp/index.php/en/en-howtouse
